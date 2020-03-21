@@ -1,6 +1,6 @@
 # Python-like `range` function
 
-```
+```JavaScript
 for (const i in range(0, 10)) {
   console.log(i)
 }
