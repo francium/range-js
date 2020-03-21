@@ -1,4 +1,11 @@
-class Ranger {
+export interface Range extends Iterable<number> {
+  filter(predicateFn: (i: number) => boolean): number[];
+  forEach(func: (i: number) => unknown): void;
+  map<T>(mapFn: (i: number) => T): T[];
+  reduce<T>(reducerFn: (accumulator: T, i: number) => T, initial: T): T;
+}
+
+class _Range implements Range {
 
   public constructor(
     private _start: number,
@@ -26,18 +33,18 @@ class Ranger {
     return results
   }
 
+  public forEach(func: (i: number) => unknown): void {
+    for (const i of this) {
+      func(i)
+    }
+  }
+
   public map<T>(mapFn: (i: number) => T): T[] {
     const results = []
     for (const i of this) {
       results.push(mapFn(i))
     }
     return results
-  }
-
-  public forEach(func: (i: number) => unknown): void {
-    for (const i of this) {
-      func(i)
-    }
   }
 
   public reduce<T>(reducerFn: (accumulator: T, i: number) => T, initial: T): T {
@@ -50,6 +57,30 @@ class Ranger {
 
 }
 
-export function range(start: number, stop: number, step: number = 1) {
-  return new Ranger(start, stop, step)
+export function range(stop: number): Range;
+export function range(start: number, stop: number): Range;
+export function range(start: number, stop: number, step: number): Range;
+export function range(...args: number[]): Range {
+  let start = 0
+  let stop = 0
+  let step = 1
+  switch (args.length) {
+    case 0:
+      throw new Error(`Invalid arguments. range expected 1, 2 or 3 arguments: ${args}`)
+      break
+    case 1:
+      stop = args[0]
+      break
+    case 2:
+      start = args[0]
+      stop = args[1]
+      break
+    default: // 3 or more
+      start = args[0]
+      stop = args[1]
+      step = args[2]
+      break
+  }
+
+  return new _Range(start, stop, step)
 }
