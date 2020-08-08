@@ -8,9 +8,9 @@ export interface Range extends Iterable<number> {
 class _Range implements Range {
 
   public constructor(
-    private _start: number,
-    private _stop: number,
-    private _step: number,
+    private readonly _start: number,
+    private readonly _stop: number,
+    private readonly _step: number,
   ) {}
 
   public *[Symbol.iterator]() {
