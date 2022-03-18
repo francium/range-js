@@ -1,4 +1,4 @@
-import { range } from './main'
+import { range } from '.'
 
 test('for..of', () => {
   let n = 3;
