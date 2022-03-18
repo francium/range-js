@@ -1,11 +1,14 @@
 {
-  "name": "range-js",
-  "version": "0.0.0",
+  "name": "@francium/range",
+  "version": "0.0.1",
   "description": "Python-like range function",
-  "main": "dist/main.min.js",
+  "main": "dist/index.min.js",
+  "types": "dist/index.d.ts",
+  "files": ["dist/*"],
   "scripts": {
     "test": "jest",
-    "build": "tsc -b && minify dist/main.js > dist/main.min.js && rm dist/main.js"
+    "build": "tsc -b && minify dist/index.js > dist/index.min.js && rm dist/index.js",
+    "publish": "npm publish --access public"
   },
   "keywords": [
     "util",

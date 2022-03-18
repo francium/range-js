@@ -1,5 +1,13 @@
-# Python-like `range` function
+# A Python-like `range` function for JavaScript
 
+
+## Installation
+```
+npm i --save @francium/range
+```
+
+
+## Usage
 ```JavaScript
 for (const i in range(0, 10)) {
   console.log(i)
