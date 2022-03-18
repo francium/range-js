@@ -3,6 +3,7 @@ export interface Range extends Iterable<number> {
   forEach(func: (i: number) => unknown): void;
   map<T>(mapFn: (i: number) => T): T[];
   reduce<T>(reducerFn: (accumulator: T, i: number) => T, initial: T): T;
+  toArray(): number[];
 }
 
 class _Range implements Range {
@@ -53,6 +54,10 @@ class _Range implements Range {
       results = reducerFn(results, i)
     }
     return results
+  }
+
+  toArray(): number[] {
+    return this.map(i => i);
   }
 
 }

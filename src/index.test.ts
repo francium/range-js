@@ -48,3 +48,7 @@ describe('reduce', () => {
     expect(range(0, 3).reduce((sum, i) => sum + i, 0)).toBe(3)
   })
 })
+
+test('toArray', () => {
+  expect(range(0, 3).toArray()).toEqual([0, 1, 2])
+});

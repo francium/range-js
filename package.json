@@ -6,7 +6,7 @@
   "types": "dist/index.d.ts",
   "files": ["dist/*"],
   "scripts": {
-    "test": "jest",
+    "test": "jest --watch",
     "build": "tsc -b && minify dist/index.js > dist/index.min.js && rm dist/index.js",
     "publish": "npm publish --access public"
   },

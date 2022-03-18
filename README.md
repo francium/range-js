@@ -22,4 +22,6 @@ range(0, 10).filter(i => i % 2 == 0) // [0, 2, 4, 6, 8]
 range(0, 5).map(i => i ** 2) // [0, 1, 4, 9, 16]
 
 range(0, 3).reduce((accum, i) => i + accum, 0) // 3 === 0 + 1 + 2
+
+range(0, 3).toArray() // [0, 1, 2]
 ```
