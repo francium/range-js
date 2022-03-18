@@ -1,10 +1,12 @@
 {
   "name": "@francium/range",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Python-like range function",
   "main": "dist/index.min.js",
   "types": "dist/index.d.ts",
-  "files": ["dist/*"],
+  "files": [
+    "dist/*"
+  ],
   "scripts": {
     "test": "jest --watch",
     "build": "tsc -b && minify dist/index.js > dist/index.min.js && rm dist/index.js",
